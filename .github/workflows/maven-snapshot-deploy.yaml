@@ -33,7 +33,7 @@ jobs:
         run: cat ~/.m2/settings.xml         
       - name: "Maven deploy"
         run: |
-          mvn --batch-mode deploy -DaltDeploymentRepository=github::https://maven.pkg.github.com/${{ github.repository }} -Dgpg.skip=true
+          mvn --batch-mode deploy -DaltDeploymentRepository=github::https://maven.pkg.github.com/${{ github.repository }} -Dgpg.skip=true -DskipPublishing=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_USER: ${{ github.actor }}
