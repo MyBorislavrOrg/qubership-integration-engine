@@ -8,9 +8,10 @@ name: Maven deploy snapshot
 
 on:
   push:
-    branches:
-      - "!main"
-      - "!**release*"
+    branches-ignore:
+      - "main"
+      - "**release*"
+      - "prettier/**"
 
 permissions:
   packages: write
