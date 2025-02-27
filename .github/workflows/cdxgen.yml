@@ -43,7 +43,9 @@ jobs:
           docker run --rm -v $PWD:/app ghcr.io/owasp-dep-scan/dep-scan \
           --src /app --reports-dir /app/reports --bom /app/${{ github.event.repository.name }}_sbom.json
         shell: bash
-  
+      - name: "Debug"
+        run: |
+          ls -la ./
       - name: "Upload Depscan report"
         uses: actions/upload-artifact@v4.6.0
         with:
