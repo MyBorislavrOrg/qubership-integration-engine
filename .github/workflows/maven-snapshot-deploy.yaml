@@ -34,7 +34,12 @@ jobs:
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
 
       - name: Display settings.xml
-        run: cat ~/.m2/settings.xml         
+        run: cat ~/.m2/settings.xml
+      - name: "Disable Maven Central Deploy"
+        uses: netcracker/qubership-workflow-hub/actions/pom-updater@main
+        with:
+          path: "//p:project/p:build/p:plugins/p:plugin[artifactId='central-publishing-maven-plugin']/p:configuration/p:skipPublishing"
+          new_value: 'true'
       - name: "Maven deploy"
         run: |
           mvn --batch-mode deploy -DaltDeploymentRepository=github::https://maven.pkg.github.com/${{ github.repository }} \
