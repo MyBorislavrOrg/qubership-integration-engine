@@ -36,9 +36,10 @@ jobs:
       - name: Display settings.xml
         run: cat ~/.m2/settings.xml
       - name: "Disable Maven Central Deploy"
-        uses: Mudlet/xmlstarlet-action@v1.2
-        with:
-          args: ed -L -s "/_:project/_:build/_:plugins/_:plugin[./_:artifactId='central-publishing-maven-plugin']/_:configuration" -t elem -n skipPublishing -v true ./pom.xml
+        run: |
+          sudo apt install -y xmlstarlet
+          xmlstarlet args: ed -L -s "/_:project/_:build/_:plugins/_:plugin[./_:artifactId='central-publishing-maven-plugin']/_:configuration" -t elem -n skipPublishing -v true ./pom.xml
+          cat ./pom.xml
 
       - name: "Maven deploy"
         run: |
