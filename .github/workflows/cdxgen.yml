@@ -23,20 +23,6 @@ jobs:
             echo "PROJECT_TYPE=" >> $GITHUB_ENV
           fi
   
-      - name: "Generate BOM"
-        run: |
-          cd ${GITHUB_WORKSPACE}
-          docker run --rm -v /tmp:/tmp -v $(pwd):/app:rw -t ghcr.io/cyclonedx/cdxgen:v8.6.0 -r /app -p -o /app/${{ github.event.repository.name }}_sbom.json "${{ env.PROJECT_TYPE }}"
-          docker rmi -f $(docker images -aq)
-        shell: bash
-  
-      - name: "Upload SBOM file"
-        uses: actions/upload-artifact@v4.6.0
-        with:
-          name: "BOM file"
-          path: ${{ github.workspace }}/**/${{ github.event.repository.name }}_sbom.json
-          retention-days: 5
-  
       - name: "Generate Depscan report"
         run: |
           cd ${GITHUB_WORKSPACE}
