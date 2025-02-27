@@ -28,7 +28,7 @@ jobs:
       - name: "Check that version is SNAPSHOT"
         shell: bash
         run: |
-          xmlstarlet sel -N x="http://maven.apache.org/POM/4.0.0" -t -v "/x:project/x:properties/x:revision[contains(., '-SNAPSHOT')]" ./pom.xml
+          cd ${GITHUB_WORKSPACE}
           IS_SNAPSHOT=$(xmlstarlet sel -N x="http://maven.apache.org/POM/4.0.0" -t -v "/x:project/x:properties/x:revision[contains(., '-SNAPSHOT')]" ./pom.xml)
           if [[ "${IS_SNAPSHOT}" == "" ]]
           then
