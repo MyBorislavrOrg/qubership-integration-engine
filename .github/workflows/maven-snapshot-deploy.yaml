@@ -33,7 +33,12 @@ jobs:
           then
             echo "❗ The project/properties/revision in the pom.xml has no '-SNAPSHOT' postfix." >> $GITHUB_STEP_SUMMARY
             echo "Workflow fail. Please add '-SNAPSHOT' to the revision." >> $GITHUB_STEP_SUMMARY
+            echo "❗ The project/properties/revision in the pom.xml has no '-SNAPSHOT' postfix."
+            echo "Workflow fail. Please add '-SNAPSHOT' to the revision."
             exit 1
+          else
+            echo "✅ The project/properties/revision in the pom.xml has '-SNAPSHOT' postfix: ${IS_SNAPSHOT}" >> $GITHUB_STEP_SUMMARY
+            echo "✅ The project/properties/revision in the pom.xml has '-SNAPSHOT' postfix: ${IS_SNAPSHOT}"
           fi
       - name: "Set up JDK"
         uses: actions/setup-java@v4
