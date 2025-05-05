@@ -4,7 +4,7 @@
 
     <groupId>org.qubership</groupId>
     <artifactId>qip-engine</artifactId>
-    <version>${revision}</version>
+    <version>0.1.1-SNAPSHOT</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
