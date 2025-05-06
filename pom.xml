@@ -24,7 +24,7 @@
     </developers>
     <scm>
         <connection>https//github.com/myborislavrorg/qubership-integration-engine.git</connection>
-        <developerConnection>https://github.com:myborislavrorg/qubership-integration-engine.git</developerConnection>
+        <developerConnection>https://github.com/myborislavrorg/qubership-integration-engine.git</developerConnection>
         <url>https://github.com/myborislavrorg/qubership-integration-engine/tree/main</url>
     </scm>
     <parent>
