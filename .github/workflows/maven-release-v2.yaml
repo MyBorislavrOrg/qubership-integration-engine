@@ -52,6 +52,11 @@ on:
         required: false
         default: false
         type: boolean
+      dry-run:
+        description: 'Do not publish anything'
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
