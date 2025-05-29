@@ -17,7 +17,7 @@
         <generated-resources>target/generated-sources/resources</generated-resources>
         <java.version>21</java.version>
 
-        <revision>0.1.1-context-propagation-fix-SNAPSHOT</revision>
+        <revision>0.1.1-SNAPSHOT</revision>
         <groovy-apache-bom.version>4.0.21</groovy-apache-bom.version>
         <jackson-bom.version>2.17.0</jackson-bom.version>
 
@@ -274,6 +274,9 @@
         <repository>
             <id>central</id>
             <name>Central Maven Repository</name>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </repository>
     </distributionManagement>
 
@@ -785,7 +788,7 @@
             <plugin>
                 <groupId>org.sonatype.central</groupId>
                 <artifactId>central-publishing-maven-plugin</artifactId>
-                <version>0.6.0</version>
+                <version>0.7.0</version>
                 <extensions>true</extensions>
                 <configuration>
                     <publishingServerId>central</publishingServerId>
